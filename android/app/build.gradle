@@ -9,7 +9,8 @@ if (localPropertiesFile.exists()) {
 
 def flutterRoot = localProperties.getProperty('flutter.sdk')
 if (flutterRoot == null) {
-    throw new FileNotFoundException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+    throw new FileNotFoundException("Flutter " +
+            "SDK not found. Define location with flutter.sdk in the local.properties file.")
 }
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
@@ -34,8 +35,8 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "co.appbrewery.flash_chat"
-        minSdkVersion 16
+        applicationId "co.aakash.flash_chat"
+        minSdkVersion 23
         targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -57,4 +58,6 @@ flutter {
 
 dependencies {
     implementation 'androidx.multidex:multidex:2.0.0'
+    implementation platform('com.google.firebase:firebase-bom:28.0.1')
 }
+apply plugin: 'com.google.gms.google-services'
