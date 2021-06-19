@@ -46,7 +46,8 @@ class _ChatScreenState extends State<ChatScreen> {
               icon: Icon(Icons.close),
               onPressed: () {
                 _auth.signOut();
-                Navigator.pop(context);
+                Navigator.pushNamedAndRemoveUntil(
+                    context, WelcomeScreen.id, (route) => false);
               }),
         ],
         title: Text('⚡️Chat'),

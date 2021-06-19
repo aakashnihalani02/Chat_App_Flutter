@@ -3,6 +3,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'login_screen.dart';
 import 'registration_screen.dart';
 import 'package:flash_chat/components/rounded_button.dart';
+import 'package:flash_chat/page_transitions.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -56,6 +57,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   ),
                 ),
                 AnimatedTextKit(
+                  //animation
                   animatedTexts: [
                     WavyAnimatedText(
                       'Flash Chat',
@@ -75,14 +77,15 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               colour: Colors.lightBlueAccent,
               buttonText: 'Log In',
               onPressed: () {
-                Navigator.pushNamed(context, LoginScreen.id);
+                Navigator.push(context, SlideRightRoute(page: LoginScreen()));
               },
             ),
             RoundedButton(
               colour: Colors.blueAccent,
               buttonText: 'Register',
               onPressed: () {
-                Navigator.pushNamed(context, RegistrationScreen.id);
+                Navigator.push(
+                    context, SlideRightRoute(page: RegistrationScreen()));
               },
             )
           ],

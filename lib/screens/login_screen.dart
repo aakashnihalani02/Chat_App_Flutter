@@ -73,7 +73,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     final User = await _auth.signInWithEmailAndPassword(
                         email: email, password: password);
                     if (User != null) {
-                      Navigator.pushNamed(context, ChatScreen.id);
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => ChatScreen()),
+                          (route) => false);
                     }
                     setState(() {
                       showSpinner = false;
